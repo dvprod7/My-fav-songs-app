@@ -9,7 +9,7 @@ Hi! 👋 This is a simple angular project that allows you to add your favorite S
 - Integrating Bootstrap to angular.
 - Basic styling using sass.
 - Data binding, property binding and event binding, *ngIf and *ngFor.
-- *ngFor to dinamically call objects from an array.
-- Extracting ang ID from an URL, using regular expressions.
+- *ngFor to dynamically call objects from an array.
+- Extracting an ID from an URL, using regular expressions.
 - Interacting with DomSanitizer from @angular/platform-browser.
 - Basic array manipulation with push() and splice().
