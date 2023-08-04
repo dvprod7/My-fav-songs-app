@@ -1,0 +1,118 @@
+<section class="input-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <h1 class="text-center">My fav songs!</h1>
+      <p class="text-center">Please add me only <u>spotify</u> links</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <div class="input-section__enter">
+          <input
+            type="text"
+            [(ngModel)]="newSongUrl"
+            placeholder="Add your share link here!"
+          />
+          <button class="btn" (click)="addSong(newSongUrl)">Add song</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="songs">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <div class="alertMsg" *ngIf="songs.length == 0">
+          <h3 class="text-center"><b>Please add me songs :c</b></h3>
+        </div>
+        <div class="song-container" *ngFor="let song of songs; index as i">
+          <div class="list-options">
+            <button class="list-options-item close" (click)="deleteSong(i)">
+              <svg
+                width="31"
+                height="31"
+                viewBox="0 0 31 31"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.7212 11.2208C12.3185 10.8181 11.6656 10.8181 11.2629 11.2208C10.8603 11.6235 10.8603 12.2763 11.2629 12.679L13.9709 15.387L11.263 18.095C10.8603 18.4975 10.8603 19.1504 11.263 19.5531C11.6656 19.9558 12.3185 19.9558 12.7212 19.5531L15.4292 16.8453L18.137 19.5531C18.5397 19.9558 19.1926 19.9558 19.5953 19.5531C19.998 19.1504 19.998 18.4975 19.5953 18.0948L16.8873 15.387L19.5953 12.679C19.998 12.2764 19.998 11.6235 19.5953 11.2208C19.1926 10.8181 18.5397 10.8181 18.137 11.2208L15.4292 13.9287L12.7212 11.2208Z"
+                  fill="white"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M15.4292 0.607597C7.26674 0.607597 0.649796 7.22454 0.649796 15.387C0.649796 23.5494 7.26674 30.1663 15.4292 30.1663C23.5916 30.1663 30.2085 23.5494 30.2085 15.387C30.2085 7.22454 23.5916 0.607597 15.4292 0.607597ZM2.71203 15.387C2.71203 8.36349 8.40569 2.66983 15.4292 2.66983C22.4526 2.66983 28.1463 8.36349 28.1463 15.387C28.1463 22.4104 22.4526 28.1041 15.4292 28.1041C8.40569 28.1041 2.71203 22.4104 2.71203 15.387Z"
+                  fill="white"
+                />
+              </svg>
+            </button>
+            <button [disabled]="i == 0" class="list-options-item moveUp" (click)="moveUp(i)">
+              <svg
+                width="30"
+                height="31"
+                viewBox="0 0 30 31"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.3982 10.3658L15.3982 19.9298ZM15.3982 10.3658L13.0072 12.7568ZM15.3982 10.3658L17.7892 12.7568Z"
+                  fill="white"
+                />
+                <path
+                  d="M15.3982 10.3658L15.3982 19.9298M15.3982 10.3658L13.0072 12.7568M15.3982 10.3658L17.7892 12.7568"
+                  stroke="white"
+                  stroke-width="1.4346"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M15.1591 0.60759C6.99669 0.60759 0.379745 7.22454 0.379745 15.3869C0.379745 23.5494 6.99669 30.1663 15.1591 30.1663C23.3216 30.1663 29.9385 23.5494 29.9385 15.3869C29.9385 7.22454 23.3216 0.60759 15.1591 0.60759ZM2.44198 15.3869C2.44198 8.36348 8.13564 2.66983 15.1591 2.66983C22.1825 2.66983 27.8762 8.36348 27.8762 15.3869C27.8762 22.4104 22.1825 28.1041 15.1591 28.1041C8.13564 28.1041 2.44198 22.4104 2.44198 15.3869Z"
+                  fill="white"
+                />
+              </svg>
+            </button>
+            <button [disabled]="i == songs.length - 1" class="list-options-item moveDown" (click)="moveDown(i)">
+              <svg
+                width="31"
+                height="31"
+                viewBox="0 0 31 31"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.5333 19.9299L15.5333 10.3659M15.5333 19.9299L17.9243 17.5389M15.5333 19.9299L13.1423 17.5389"
+                  stroke="white"
+                  stroke-width="1.4346"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M15.2941 0.60762C7.13172 0.60762 0.514771 7.22457 0.514771 15.387C0.514771 23.5494 7.13172 30.1663 15.2941 30.1663C23.4566 30.1663 30.0735 23.5494 30.0735 15.387C30.0735 7.22457 23.4566 0.60762 15.2941 0.60762ZM2.57701 15.387C2.57701 8.36351 8.27066 2.66986 15.2941 2.66986C22.3176 2.66986 28.0113 8.36351 28.0113 15.387C28.0113 22.4104 22.3176 28.1041 15.2941 28.1041C8.27066 28.1041 2.57701 22.4104 2.57701 15.387Z"
+                  fill="white"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="song-wraper">
+            <iframe
+              style="border-radius:12px"
+              [src]="getSafeUrl(song.code)"
+              width="100%"
+              height="352"
+              frameBorder="0"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
